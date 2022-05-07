@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "bin": {
-  "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js"
   },
   "description": "[![Actions Status](https://github.com/Latanarie/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Latanarie/frontend-project-lvl1/actions)",
   "main": "index.js",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Latanarie/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/Latanarie/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/Latanarie/frontend-project-lvl1#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
