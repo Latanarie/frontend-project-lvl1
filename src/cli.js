@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
 
-export const meeting = () => {
+const meeting = () => {
   const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
 };
+
+export default meeting;
