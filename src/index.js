@@ -1,17 +1,18 @@
 import readlineSync from 'readline-sync';
 
-const randomNuwber = () => Math.floor(Math.random() * 1000);
+export const randomNumber = () => Math.floor(Math.random() * 10);
 
-const evenNumber = () => {
+export const generalRules = (whatToDo, howToCalculate) => {
+  console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log(whatToDo);
   let countOfAttempts = 3;
   while (countOfAttempts > 0) {
-    const whichNuwber = randomNuwber();
-    const correctAnswer = (whichNuwber % 2 === 0) ? 'yes' : 'no';
-    console.log(`Question: ${whichNuwber}`);
+    const [question, correctResult] = howToCalculate();
+    console.log(`Question: ${question}`);
     const sayAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = correctResult;
     if (sayAnswer === correctAnswer) {
       console.log('Correct!');
       countOfAttempts -= 1;
@@ -23,5 +24,3 @@ const evenNumber = () => {
   }
   console.log(`Congratulations, ${userName}!`);
 };
-
-export default evenNumber;
