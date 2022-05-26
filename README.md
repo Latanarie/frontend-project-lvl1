@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 ![Node CI](https://github.com/Latanarie/frontend-project-lvl1/actions/workflows/github-actions-demo.yml/badge.svg)
 [![asciicast](https://asciinema.org/a/ogq0Jx01iTnG4tazeWCURi08e.svg)](https://asciinema.org/a/ogq0Jx01iTnG4tazeWCURi08e)
+[![asciicast](https://asciinema.org/a/f5A9NkXTdN2Okt9JIRUxR8EQy.svg)](https://asciinema.org/a/f5A9NkXTdN2Okt9JIRUxR8EQy)
