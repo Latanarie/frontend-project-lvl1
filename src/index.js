@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export const randomNumber = () => Math.floor(Math.random() * 10);
+export const randomNumber = () => Math.floor(Math.random() * 100);
 
 export const generalRules = (whatToDo, howToCalculate) => {
   console.log('Welcome to the Brain Games!');
