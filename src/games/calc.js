@@ -7,12 +7,17 @@ const randomSymbol = (array) => {
 };
 
 const calculate = (operand1, operand2, operator) => {
+  let result;
   switch (operator) {
-    case '+': return operand1 + operand2;
-    case '-': return operand1 - operand2;
-    case '*': return operand1 * operand2;
+    case '+': result = operand1 + operand2;
+      break;
+    case '-': result = operand1 - operand2;
+      break;
+    case '*': result = operand1 * operand2;
+      break;
     default: break;
   }
+  return result;
 };
 
 const question = 'What is the result of the expression?';
