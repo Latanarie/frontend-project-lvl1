@@ -23,8 +23,8 @@ const calculate = (operand1, operand2, operator) => {
 const question = 'What is the result of the expression?';
 
 const calcGame = () => {
-  const firstNumber = rules.randomNumber();
-  const secondNumber = rules.randomNumber();
+  const firstNumber = rules.randomNumber(0, 100);
+  const secondNumber = rules.randomNumber(0, 100);
   const symbol = randomSymbol(arrayOfSymbol);
   const calcQuestion = `${firstNumber} ${symbol} ${secondNumber}`;
   const calcResult = String(calculate(firstNumber, secondNumber, symbol));

@@ -3,8 +3,8 @@ import * as rules from '../index.js';
 const question = 'Find the greatest common divisor of given numbers.';
 
 const greatestCommonDiviser = () => {
-  const firstNumber = rules.randomNumber();
-  const secondNumber = rules.randomNumber();
+  const firstNumber = rules.randomNumber(1, 100);
+  const secondNumber = rules.randomNumber(1, 100);
   const gsdQuestion = `${firstNumber} ${secondNumber}`;
   let smallestNumber = (firstNumber > secondNumber) ? secondNumber : firstNumber;
   let biggestNumber = (firstNumber > secondNumber) ? firstNumber : secondNumber;
