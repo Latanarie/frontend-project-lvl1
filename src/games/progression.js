@@ -1,4 +1,4 @@
-import rules from '../index.js';
+import generateRules from '../index.js';
 import randomNumber from '../utils.js';
 
 const question = 'What number is missing in the progression?';
@@ -7,6 +7,7 @@ const createProgression = () => {
   const sizeOfProgression = randomNumber(5, 10);
   const step = randomNumber(1, 10);
   const firstNumber = randomNumber(0, 100);
+
   let progression = [firstNumber];
   while (progression.length <= sizeOfProgression) {
     const newElement = progression[progression.length - 1] + step;
@@ -17,7 +18,7 @@ const createProgression = () => {
 
 const progressionGame = () => {
   const arrayOfProgression = createProgression();
-  const missingElement = Math.floor(Math.random() * arrayOfProgression.length);
+  const missingElement = randomNumber(0, arrayOfProgression.length);
   const progressionResult = arrayOfProgression[missingElement];
   arrayOfProgression[missingElement] = '..';
   const progressionQuestion = `${arrayOfProgression.join(' ')}`;
@@ -25,7 +26,7 @@ const progressionGame = () => {
 };
 
 const gameLaunch = () => {
-  rules(question, progressionGame);
+  generateRules(question, progressionGame);
 };
 
 export default gameLaunch;

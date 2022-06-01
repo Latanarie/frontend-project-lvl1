@@ -1,25 +1,30 @@
-import rules from '../index.js';
+import generateRules from '../index.js';
 import randomNumber from '../utils.js';
 
 const question = 'Find the greatest common divisor of given numbers.';
 
-const greatestCommonDiviser = () => {
-  const firstNumber = randomNumber(1, 100);
-  const secondNumber = randomNumber(1, 100);
-  const gsdQuestion = `${firstNumber} ${secondNumber}`;
-  let smallestNumber = (firstNumber > secondNumber) ? secondNumber : firstNumber;
-  let biggestNumber = (firstNumber > secondNumber) ? firstNumber : secondNumber;
+const getGreatestCommonDiviser = (number1, number2) => {
+  let smallestNumber = (number1 > number2) ? number2 : number1;
+  let biggestNumber = (number1 > number2) ? number1 : number2;
   let remainder = biggestNumber % smallestNumber;
   while (remainder > 0) {
     biggestNumber = smallestNumber;
     smallestNumber = remainder;
     remainder = biggestNumber % smallestNumber;
   }
-  return [gsdQuestion, String(smallestNumber)];
+  return smallestNumber;
+};
+
+const greatestCommonDiviser = () => {
+  const firstNumber = randomNumber(1, 100);
+  const secondNumber = randomNumber(1, 100);
+  const gsdQuestion = `${firstNumber} ${secondNumber}`;
+  const gsdResult = getGreatestCommonDiviser(firstNumber, secondNumber);
+  return [gsdQuestion, String(gsdResult)];
 };
 
 const gameLaunch = () => {
-  rules(question, greatestCommonDiviser);
+  generateRules(question, greatestCommonDiviser);
 };
 
 export default gameLaunch;

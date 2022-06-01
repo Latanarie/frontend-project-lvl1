@@ -1,24 +1,24 @@
-import rules from '../index.js';
+import generateRules from '../index.js';
 import randomNumber from '../utils.js';
 
 const arrayOfSymbol = ['+', '-', '*'];
+
 const randomSymbol = (array) => {
-  const index = Math.floor(Math.random() * array.length);
+  const index = randomNumber(0, array.length - 1);
   return array[index];
 };
 
 const calculate = (operand1, operand2, operator) => {
-  let result;
   switch (operator) {
-    case '+': result = operand1 + operand2;
-      break;
-    case '-': result = operand1 - operand2;
-      break;
-    case '*': result = operand1 * operand2;
-      break;
-    default: break;
+    case '+':
+      return operand1 + operand2;
+    case '-':
+      return operand1 - operand2;
+    case '*':
+      return operand1 * operand2;
+    default:
+      throw new Error('Unknown operator!');
   }
-  return result;
 };
 
 const question = 'What is the result of the expression?';
@@ -33,7 +33,7 @@ const calcGame = () => {
 };
 
 const gameLaunch = () => {
-  rules(question, calcGame);
+  generateRules(question, calcGame);
 };
 
 export default gameLaunch;
