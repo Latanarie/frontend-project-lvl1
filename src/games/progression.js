@@ -1,11 +1,12 @@
-import * as rules from '../index.js';
+import rules from '../index.js';
+import randomNumber from '../utils.js';
 
 const question = 'What number is missing in the progression?';
 
 const createProgression = () => {
-  const sizeOfProgression = rules.randomNumber(5, 10);
-  const step = rules.randomNumber(1, 10);
-  const firstNumber = rules.randomNumber(0, 100);
+  const sizeOfProgression = randomNumber(5, 10);
+  const step = randomNumber(1, 10);
+  const firstNumber = randomNumber(0, 100);
   let progression = [firstNumber];
   while (progression.length <= sizeOfProgression) {
     const newElement = progression[progression.length - 1] + step;
@@ -24,7 +25,7 @@ const progressionGame = () => {
 };
 
 const gameLaunch = () => {
-  rules.generalRules(question, progressionGame);
+  rules(question, progressionGame);
 };
 
 export default gameLaunch;

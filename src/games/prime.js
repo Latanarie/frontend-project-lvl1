@@ -1,9 +1,10 @@
-import * as rules from '../index.js';
+import rules from '../index.js';
+import randomNumber from '../utils.js';
 
 const question = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 const primeNumber = () => {
-  const whichNumber = rules.randomNumber(0, 100);
+  const whichNumber = randomNumber(0, 100);
   const primeQuestion = `${whichNumber}`;
   let result = true;
   for (let i = 2; i <= whichNumber / 2; i += 1) {
@@ -17,7 +18,7 @@ const primeNumber = () => {
 };
 
 const gameLaunch = () => {
-  rules.generalRules(question, primeNumber);
+  rules(question, primeNumber);
 };
 
 export default gameLaunch;
