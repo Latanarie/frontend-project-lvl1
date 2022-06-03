@@ -13,7 +13,7 @@ const createProgressionArguments = () => {
 const createProgression = () => {
   const [size, step, begin] = createProgressionArguments();
   let progression = [begin];
-  while (progression.length < size) {
+  while (progression.length <= size) {
     const newElement = progression[progression.length - 1] + step;
     progression = [...progression, newElement];
   }
