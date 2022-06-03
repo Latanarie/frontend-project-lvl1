@@ -3,13 +3,16 @@ import randomNumber from '../utils.js';
 
 const question = 'What number is missing in the progression?';
 
-const createProgression = () => {
+const createProgressionArguments = () => {
   const sizeOfProgression = randomNumber(5, 10);
-  const step = randomNumber(1, 10);
+  const stepOfProgression = randomNumber(1, 10);
   const firstNumber = randomNumber(0, 100);
+  return [sizeOfProgression, stepOfProgression, firstNumber];
+};
 
-  let progression = [firstNumber];
-  while (progression.length <= sizeOfProgression) {
+const createProgression = ([size, step, begin] = createProgressionArguments()) => {
+  let progression = [begin];
+  while (progression.length <= size) {
     const newElement = progression[progression.length - 1] + step;
     progression = [...progression, newElement];
   }
