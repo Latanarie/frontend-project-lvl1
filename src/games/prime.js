@@ -13,7 +13,7 @@ const isPrimeNumber = (number) => {
 };
 
 const primeNumber = () => {
-  const randomNumber = getRandomNumber(0, 100);
+  const randomNumber = getRandomNumber(2, 100);
   const primeQuestion = String(randomNumber);
   const primeResult = isPrimeNumber(randomNumber) ? 'yes' : 'no';
   return [primeQuestion, primeResult];
