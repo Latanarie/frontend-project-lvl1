@@ -1,36 +1,32 @@
-import generateRules from '../index.js';
-import randomNumber from '../utils.js';
+import rule from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const question = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
-const createProgressionArguments = () => {
-  const sizeOfProgression = randomNumber(5, 10);
-  const stepOfProgression = randomNumber(1, 10);
-  const firstNumber = randomNumber(0, 100);
-  return [sizeOfProgression, stepOfProgression, firstNumber];
-};
-
-const createProgression = () => {
-  const [size, step, begin] = createProgressionArguments();
+const createProgression = (size, step, begin) => {
   let progression = [begin];
-  while (progression.length <= size) {
-    const newElement = progression[progression.length - 1] + step;
+  let newElement;
+  while (progression.length < size) {
+    newElement = progression[progression.length - 1] + step;
     progression = [...progression, newElement];
   }
   return progression;
 };
 
 const progressionGame = () => {
-  const arrayOfProgression = createProgression();
-  const missingElement = randomNumber(0, arrayOfProgression.length);
-  const progressionResult = arrayOfProgression[missingElement];
-  arrayOfProgression[missingElement] = '..';
-  const progressionQuestion = `${arrayOfProgression.join(' ')}`;
+  const size = getRandomNumber(5, 10);
+  const step = getRandomNumber(1, 10);
+  const firstNumber = getRandomNumber(0, 100);
+  const arithmeticProgression = createProgression(size, step, firstNumber);
+  const missingElement = getRandomNumber(0, arithmeticProgression.length - 1);
+  const progressionResult = arithmeticProgression[missingElement];
+  arithmeticProgression[missingElement] = '..';
+  const progressionQuestion = `${arithmeticProgression.join(' ')}`;
   return [progressionQuestion, String(progressionResult)];
 };
 
 const gameLaunch = () => {
-  generateRules(question, progressionGame);
+  rule(description, progressionGame);
 };
 
 export default gameLaunch;

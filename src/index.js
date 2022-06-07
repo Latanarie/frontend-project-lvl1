@@ -1,12 +1,14 @@
 import readlineSync from 'readline-sync';
 
-const generateRules = (getQuestion, getResult) => {
+const rule = (getQuestion, getResult) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${userName}!`);
   console.log(getQuestion);
 
-  for (let i = 3; i > 0; i -= 1) {
+  const countOfAttempts = 3;
+
+  for (let i = countOfAttempts; i > 0; i -= 1) {
     const [question, correctResult] = getResult();
     console.log(`Question: ${question}`);
     const sayAnswer = readlineSync.question('Your answer: ');
@@ -20,4 +22,4 @@ const generateRules = (getQuestion, getResult) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default generateRules;
+export default rule;

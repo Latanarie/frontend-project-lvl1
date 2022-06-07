@@ -1,28 +1,26 @@
-import generateRules from '../index.js';
-import randomNumber from '../utils.js';
+import rule from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const question = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 const isPrimeNumber = (number) => {
-  let result = true;
   for (let i = 2; i <= number / 2; i += 1) {
     if (number % i === 0) {
-      result = false;
-      break;
+      return false;
     }
   }
-  return result;
+  return true;
 };
 
 const primeNumber = () => {
-  const whichNumber = randomNumber(0, 100);
-  const primeQuestion = String(whichNumber);
-  const primeResult = isPrimeNumber(whichNumber) ? 'yes' : 'no';
+  const randomNumber = getRandomNumber(0, 100);
+  const primeQuestion = String(randomNumber);
+  const primeResult = isPrimeNumber(randomNumber) ? 'yes' : 'no';
   return [primeQuestion, primeResult];
 };
 
 const gameLaunch = () => {
-  generateRules(question, primeNumber);
+  rule(description, primeNumber);
 };
 
 export default gameLaunch;

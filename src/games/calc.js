@@ -1,10 +1,10 @@
-import generateRules from '../index.js';
-import randomNumber from '../utils.js';
+import rule from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const arrayOfSymbol = ['+', '-', '*'];
+const operators = ['+', '-', '*'];
 
-const randomSymbol = (array) => {
-  const index = randomNumber(0, array.length - 1);
+const randomOperator = (array) => {
+  const index = getRandomNumber(0, array.length - 1);
   return array[index];
 };
 
@@ -17,23 +17,23 @@ const calculate = (operand1, operand2, operator) => {
     case '*':
       return operand1 * operand2;
     default:
-      throw new Error('Unknown operator!');
+      throw new Error(`Unknown operator: ${operator}!`);
   }
 };
 
-const question = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const calcGame = () => {
-  const firstNumber = randomNumber(0, 100);
-  const secondNumber = randomNumber(0, 100);
-  const symbol = randomSymbol(arrayOfSymbol);
-  const calcQuestion = `${firstNumber} ${symbol} ${secondNumber}`;
-  const calcResult = String(calculate(firstNumber, secondNumber, symbol));
+  const firstNumber = getRandomNumber(0, 100);
+  const secondNumber = getRandomNumber(0, 100);
+  const operator = randomOperator(operators);
+  const calcQuestion = `${firstNumber} ${operator} ${secondNumber}`;
+  const calcResult = String(calculate(firstNumber, secondNumber, operator));
   return [calcQuestion, calcResult];
 };
 
 const gameLaunch = () => {
-  generateRules(question, calcGame);
+  rule(description, calcGame);
 };
 
 export default gameLaunch;
