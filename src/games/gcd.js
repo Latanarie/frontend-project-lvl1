@@ -5,7 +5,7 @@ const rule = 'Find the greatest common divisor of given numbers.';
 
 const getGreatestCommonDiviser = (number1, number2) => {
   const min = Math.min(number1, number2);
-  const max = Math.max(number1, number2)
+  const max = Math.max(number1, number2);
   if (max % min === 0) {
     return min;
   }
