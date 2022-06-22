@@ -1,4 +1,4 @@
-import rule from '../index.js';
+import generateGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const operators = ['+', '-', '*'];
@@ -21,7 +21,7 @@ const calculate = (operand1, operand2, operator) => {
   }
 };
 
-const description = 'What is the result of the expression?';
+const rule = 'What is the result of the expression?';
 
 const calcGame = () => {
   const firstNumber = getRandomNumber(0, 100);
@@ -33,7 +33,7 @@ const calcGame = () => {
 };
 
 const gameLaunch = () => {
-  rule(description, calcGame);
+  generateGame(rule, calcGame);
 };
 
 export default gameLaunch;

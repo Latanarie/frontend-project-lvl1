@@ -1,7 +1,7 @@
-import rule from '../index.js';
+import generateGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const description = 'What number is missing in the progression?';
+const rule = 'What number is missing in the progression?';
 
 const createProgression = (size, step, begin) => {
   let progression = [begin];
@@ -21,12 +21,12 @@ const progressionGame = () => {
   const missingElement = getRandomNumber(0, arithmeticProgression.length - 1);
   const progressionResult = arithmeticProgression[missingElement];
   arithmeticProgression[missingElement] = '..';
-  const progressionQuestion = `${arithmeticProgression.join(' ')}`;
+  const progressionQuestion = arithmeticProgression.join(' ');
   return [progressionQuestion, String(progressionResult)];
 };
 
 const gameLaunch = () => {
-  rule(description, progressionGame);
+  generateGame(rule, progressionGame);
 };
 
 export default gameLaunch;

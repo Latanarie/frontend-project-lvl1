@@ -1,17 +1,15 @@
-import rule from '../index.js';
+import generateGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const description = 'Find the greatest common divisor of given numbers.';
+const rule = 'Find the greatest common divisor of given numbers.';
 
 const getGreatestCommonDiviser = (number1, number2) => {
-  const sign = Math.sign(number1 - number2);
-  if (sign === -1) {
-    return getGreatestCommonDiviser(number2, number1);
+  const min = Math.min(number1, number2);
+  const max = Math.max(number1, number2)
+  if (max % min === 0) {
+    return min;
   }
-  if (number1 % number2 === 0) {
-    return number2;
-  }
-  return getGreatestCommonDiviser(number2, number1 % number2);
+  return getGreatestCommonDiviser(min, max % min);
 };
 
 const greatestCommonDiviser = () => {
@@ -23,7 +21,7 @@ const greatestCommonDiviser = () => {
 };
 
 const gameLaunch = () => {
-  rule(description, greatestCommonDiviser);
+  generateGame(rule, greatestCommonDiviser);
 };
 
 export default gameLaunch;
